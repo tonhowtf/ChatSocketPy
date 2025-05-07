@@ -24,7 +24,9 @@ threading.Thread(target=receive_data, daemon=True).start()
 
 
 while True:
-  msg = input("")
+  msg = input()
+  if msg == "quit":
+    break
   client.sendall(pickle.dumps(msg))
 
 client.close()
