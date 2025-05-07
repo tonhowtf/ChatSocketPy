@@ -10,12 +10,21 @@ print("Cliente conectado ao servidor: ")
 def receive_data():
   while True:
     data = pickle.loads(client.recv(1024))
-    print(data)
+    os.system("clear")
+    print("/////////////////Chat//////////////")
+    print("Para sair do chat, digite QUIT: ")
+    print("")
+    print("")
+    print("")
+    print(f"Mensagem recebida: {data}")
+    print("Digite sua mensagem abaixo:")
 
 
 threading.Thread(target=receive_data, daemon=True).start()
 
 
 while True:
-  msg = input("Digite sua mensagem: ")
+  msg = input("")
   client.sendall(pickle.dumps(msg))
+
+client.close()

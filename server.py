@@ -28,4 +28,5 @@ def receive_data(conn, addr):
 while True:
   conn, addr = server.accept()
   threading.Thread(target=receive_data, args=(conn, addr), daemon=True).start()
-  
+
+server.close()
