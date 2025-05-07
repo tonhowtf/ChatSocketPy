@@ -1,6 +1,9 @@
 import socket, threading, pickle
+
 HOST = "localhost"
 PORT = 5000
+
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen()
@@ -19,7 +22,7 @@ def receive_data(conn, addr):
     
     for client in clients:
       if conn != client:
-        conn.sendall(pickle.dumps(data))
+        client.sendall(pickle.dumps(data))
 
 
 while True:
